@@ -6,8 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:flowllet-landing": "node dist/flowllet-landing/server/server.mjs"
+    "test": "ng test"
   },
   "prettier": {
     "printWidth": 100,
@@ -22,20 +21,15 @@
     ]
   },
   "private": true,
-  "packageManager": "npm@11.6.0",
   "dependencies": {
+    "@angular/animations": "^21.1.0",
     "@angular/common": "^21.1.0",
     "@angular/compiler": "^21.1.0",
     "@angular/core": "^21.1.0",
     "@angular/forms": "^21.1.0",
     "@angular/platform-browser": "^21.1.0",
-    "@angular/platform-server": "^21.1.0",
     "@angular/router": "^21.1.0",
-    "@angular/ssr": "^21.1.4",
-    "express": "^5.1.0",
     "primeicons": "^7.0.0",
-    "primeng": "^18.0.0",
-    "@primeng/themes": "^18.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
@@ -43,11 +37,8 @@
     "@angular/build": "^21.1.4",
     "@angular/cli": "^21.1.4",
     "@angular/compiler-cli": "^21.1.0",
-    "@types/express": "^5.0.1",
     "@types/node": "^20.17.19",
-    "jsdom": "^27.1.0",
-    "typescript": "~5.9.2",
-    "vitest": "^4.0.8",
+    "typescript": "~5.7.2",
     "tailwindcss": "^3.4.1",
     "postcss": "^8.4.38",
     "autoprefixer": "^10.4.19"
