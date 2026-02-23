@@ -1,0 +1,17 @@
+services:
+  flowllet:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: flowllet-web
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    # Uncomment below if you use Nginx Proxy Manager or Traefik on the same server
+    # networks:
+    #   - proxy
+
+    # ─── Uncomment if you use an external proxy network ───
+    # networks:
+    #   proxy:
+    #     external: true
