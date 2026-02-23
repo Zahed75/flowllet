@@ -1,0 +1,285 @@
+<!-- PAGE HERO -->
+<section
+    class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 -mt-20 pt-36 pb-24 px-4 relative overflow-hidden">
+    <div class="absolute top-10 right-20 w-72 h-72 bg-indigo-500 rounded-full opacity-10 blur-3xl pointer-events-none">
+    </div>
+    <div class="absolute bottom-0 left-10 w-56 h-56 bg-cyan-400 rounded-full opacity-10 blur-3xl pointer-events-none">
+    </div>
+    <div class="max-w-3xl mx-auto text-center relative">
+        <div
+            class="w-20 h-20 rounded-3xl bg-indigo-500/20 border border-indigo-400/30 flex items-center justify-center mx-auto mb-6 shadow-2xl shadow-indigo-900">
+            <i class="pi pi-shield text-indigo-300 text-3xl"></i>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-tight">
+            Privacy Policy
+        </h1>
+        <p class="text-slate-400 text-lg mb-4 max-w-xl mx-auto">
+            We believe privacy is a right, not a feature. Here's exactly what data we collect, why, and how we protect
+            it.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-4 text-sm text-slate-400">
+            <span class="flex items-center gap-1.5 bg-white/5 rounded-full px-3 py-1.5 border border-white/10">
+                <i class="pi pi-calendar text-xs text-indigo-400"></i>
+                Last updated: February 2026
+            </span>
+            <span class="flex items-center gap-1.5 bg-white/5 rounded-full px-3 py-1.5 border border-white/10">
+                <i class="pi pi-building text-xs text-indigo-400"></i>
+                Syscomatic Technologies Ltd.
+            </span>
+            <span class="flex items-center gap-1.5 bg-white/5 rounded-full px-3 py-1.5 border border-white/10">
+                <i class="pi pi-globe text-xs text-indigo-400"></i>
+                GDPR Compliant
+            </span>
+        </div>
+    </div>
+</section>
+
+<!-- QUICK SUMMARY BANNER -->
+<section class="bg-emerald-600 text-white">
+    <div class="max-w-4xl mx-auto px-4 py-5 flex items-start gap-4">
+        <div class="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <i class="pi pi-check-circle text-white text-lg"></i>
+        </div>
+        <div>
+            <p class="font-bold text-base">The Plain-English Summary</p>
+            <p class="text-emerald-100 text-sm mt-1 leading-relaxed">
+                We collect your <strong class="text-white">email</strong> for login. For loans, you may optionally add a
+                contact's <strong class="text-white">phone &amp; email</strong> for due reminders. If you choose, you
+                can <strong class="text-white">import a contact</strong> from your phone — we never bulk-upload your
+                contacts. All your expenses, notes, and financial data stay <strong class="text-white">only on your
+                    device</strong>. We never sell your data.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- DATA COLLECTION TABLE -->
+<section class="py-16 bg-white border-b border-slate-100">
+    <div class="max-w-5xl mx-auto px-4">
+        <div class="text-center mb-10">
+            <span class="text-indigo-600 font-bold text-xs uppercase tracking-widest">Transparency First</span>
+            <h2 class="text-3xl font-extrabold text-slate-900 mt-2">What Data We Collect &amp; Why</h2>
+        </div>
+
+        <!-- Mobile Cards (sm and below) -->
+        <div class="lg:hidden space-y-4">
+            @for (row of dataTable; track row.category) {
+            <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+                <div class="flex items-center gap-3 p-4 border-b border-slate-50">
+                    <div [class]="'w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ' + row.bg">
+                        <i [class]="'pi ' + row.icon + ' ' + row.color"></i>
+                    </div>
+                    <div>
+                        <div class="font-bold text-slate-900 text-sm">{{ row.category }}</div>
+                        @if (!row.required) {
+                        <span class="text-xs text-slate-400 bg-slate-100 rounded-full px-2 py-0.5">Optional</span>
+                        } @else {
+                        <span class="text-xs text-white bg-indigo-500 rounded-full px-2 py-0.5">Required</span>
+                        }
+                    </div>
+                </div>
+                <div class="p-4 space-y-3 text-xs text-slate-600">
+                    <div><span class="font-semibold text-slate-700 block mb-1">Data Collected</span>{{ row.data }}</div>
+                    <div><span class="font-semibold text-slate-700 block mb-1">Purpose</span>{{ row.purpose }}</div>
+                    <div><span class="font-semibold text-slate-700 block mb-1">Stored On</span>{{ row.stored }}</div>
+                </div>
+            </div>
+            }
+        </div>
+
+        <!-- Desktop Table -->
+        <div class="hidden lg:block rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="bg-slate-900 text-white">
+                        <th class="text-left py-4 px-5 font-semibold text-xs uppercase tracking-wider">Data Category
+                        </th>
+                        <th class="text-left py-4 px-5 font-semibold text-xs uppercase tracking-wider">What We Collect
+                        </th>
+                        <th class="text-left py-4 px-5 font-semibold text-xs uppercase tracking-wider">Purpose</th>
+                        <th class="text-left py-4 px-5 font-semibold text-xs uppercase tracking-wider">Stored On</th>
+                        <th class="text-center py-4 px-5 font-semibold text-xs uppercase tracking-wider">Required?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (row of dataTable; track row.category; let odd = $odd) {
+                    <tr [class.bg-slate-50]="odd"
+                        class="border-t border-slate-100 hover:bg-indigo-50/30 transition-colors">
+                        <td class="py-4 px-5 font-semibold text-slate-900 align-top">
+                            <div class="flex items-center gap-2.5">
+                                <div
+                                    [class]="'w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ' + row.bg">
+                                    <i [class]="'pi ' + row.icon + ' text-sm ' + row.color"></i>
+                                </div>
+                                <span class="text-sm">{{ row.category }}</span>
+                            </div>
+                        </td>
+                        <td class="py-4 px-5 text-slate-600 align-top leading-relaxed text-xs max-w-xs">{{ row.data }}
+                        </td>
+                        <td class="py-4 px-5 text-slate-600 align-top leading-relaxed text-xs max-w-xs">{{ row.purpose
+                            }}</td>
+                        <td class="py-4 px-5 text-slate-600 align-top text-xs">{{ row.stored }}</td>
+                        <td class="py-4 px-5 text-center align-top">
+                            @if (row.required) {
+                            <span
+                                class="inline-block text-xs font-semibold text-white bg-indigo-600 rounded-full px-3 py-1">Required</span>
+                            } @else {
+                            <span
+                                class="inline-block text-xs font-semibold text-slate-500 bg-slate-100 rounded-full px-3 py-1">Optional</span>
+                            }
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- PERMISSIONS SECTION -->
+<section class="py-14 bg-slate-50 border-b border-slate-100">
+    <div class="max-w-4xl mx-auto px-4">
+        <div class="text-center mb-10">
+            <span class="text-indigo-600 font-bold text-xs uppercase tracking-widest">App Permissions</span>
+            <h2 class="text-3xl font-extrabold text-slate-900 mt-2">What Permissions We Request &amp; Why</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm flex gap-4">
+                <div class="w-12 h-12 rounded-2xl bg-orange-50 flex items-center justify-center flex-shrink-0">
+                    <i class="pi pi-phone text-orange-500 text-xl"></i>
+                </div>
+                <div>
+                    <div class="font-bold text-slate-900 mb-1">Contacts <span
+                            class="text-xs font-normal text-slate-400 ml-1">(Optional)</span></div>
+                    <div class="text-slate-500 text-xs leading-relaxed">Used only when you choose to import a single
+                        contact for a loan entry. Your full contact list is never read, uploaded, or stored. You can
+                        deny this permission and enter details manually.</div>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm flex gap-4">
+                <div class="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center flex-shrink-0">
+                    <i class="pi pi-bell text-blue-500 text-xl"></i>
+                </div>
+                <div>
+                    <div class="font-bold text-slate-900 mb-1">Notifications <span
+                            class="text-xs font-normal text-slate-400 ml-1">(Optional)</span></div>
+                    <div class="text-slate-500 text-xs leading-relaxed">Used to send you local reminders about loan due
+                        dates and scheduled expense alerts. Push notifications can be disabled at any time from device
+                        settings.</div>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm flex gap-4">
+                <div class="w-12 h-12 rounded-2xl bg-indigo-50 flex items-center justify-center flex-shrink-0">
+                    <i class="pi pi-globe text-indigo-500 text-xl"></i>
+                </div>
+                <div>
+                    <div class="font-bold text-slate-900 mb-1">Internet Access <span
+                            class="text-xs font-normal text-slate-400 ml-1">(Required)</span></div>
+                    <div class="text-slate-500 text-xs leading-relaxed">Required for account login/registration, Google
+                        Sign-In, fetching live currency exchange rates, and sending loan reminders. Core financial
+                        tracking works fully offline.</div>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm flex gap-4">
+                <div class="w-12 h-12 rounded-2xl bg-emerald-50 flex items-center justify-center flex-shrink-0">
+                    <i class="pi pi-database text-emerald-500 text-xl"></i>
+                </div>
+                <div>
+                    <div class="font-bold text-slate-900 mb-1">Local Storage <span
+                            class="text-xs font-normal text-slate-400 ml-1">(Required)</span></div>
+                    <div class="text-slate-500 text-xs leading-relaxed">Used to store your financial data — expenses,
+                        income, notes, and settings — entirely on your device. This data is never uploaded to any
+                        server.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DETAILED POLICY SECTIONS -->
+<section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4">
+        <div class="space-y-5">
+            @for (section of sections; track section.id) {
+            <div
+                class="rounded-2xl border border-slate-100 overflow-hidden shadow-sm hover:border-indigo-100 transition-colors">
+                <!-- Section Header -->
+                <div
+                    [class]="'flex items-center gap-4 p-5 border-b border-slate-50 ' + section.bg.replace('50', '50/50')">
+                    <div [class]="'w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ' + section.bg">
+                        <i [class]="'pi ' + section.icon + ' ' + section.color"></i>
+                    </div>
+                    <h2 class="font-bold text-slate-900 text-base">{{ section.id }}. {{ section.title }}</h2>
+                </div>
+                <!-- Section Body -->
+                <div class="p-5 bg-white">
+                    <div class="text-slate-600 text-sm leading-relaxed whitespace-pre-line">{{ section.content }}</div>
+                </div>
+            </div>
+            }
+
+            <!-- Contact Section -->
+            <div
+                class="rounded-2xl overflow-hidden shadow-sm border border-indigo-200 bg-gradient-to-br from-indigo-600 to-indigo-800 text-white">
+                <div class="flex items-center gap-4 p-5 border-b border-white/10">
+                    <div class="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
+                        <i class="pi pi-envelope text-white"></i>
+                    </div>
+                    <h2 class="font-bold text-white text-base">12. Contact Us</h2>
+                </div>
+                <div class="p-5 space-y-3 text-sm text-indigo-100">
+                    <p>If you have any questions about this Privacy Policy, wish to exercise your data rights, or want
+                        to report a privacy concern, please contact us:</p>
+                    <div class="bg-white/10 backdrop-blur rounded-xl p-4 space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0">
+                                <i class="pi pi-building text-white text-xs"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-indigo-200 uppercase tracking-wider">Company</div>
+                                <div class="font-semibold text-white">Syscomatic Technologies Ltd.</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0">
+                                <i class="pi pi-envelope text-white text-xs"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-indigo-200 uppercase tracking-wider">Privacy Contact</div>
+                                <a href="mailto:privacy@syscomatic.com"
+                                    class="font-semibold text-cyan-300 hover:text-white no-underline">privacy&#64;syscomatic.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0">
+                                <i class="pi pi-clock text-white text-xs"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-indigo-200 uppercase tracking-wider">Response Time</div>
+                                <div class="font-semibold text-white">Within 72 hours</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-xs text-indigo-300 pt-2">For EU/EEA users: You also have the right to lodge a
+                        complaint with your local data protection authority.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back Link -->
+        <div class="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-slate-100">
+            <a routerLink="/"
+                class="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-800 font-semibold no-underline transition-colors text-sm">
+                <i class="pi pi-arrow-left text-xs"></i> Back to Home
+            </a>
+            <div class="flex items-center gap-4 text-xs text-slate-400">
+                <a routerLink="/terms" class="hover:text-slate-600 no-underline transition-colors">Terms of Service</a>
+                <span>·</span>
+                <a routerLink="/faq" class="hover:text-slate-600 no-underline transition-colors">FAQ</a>
+                <span>·</span>
+                <a href="mailto:privacy@syscomatic.com"
+                    class="hover:text-slate-600 no-underline transition-colors">Contact</a>
+            </div>
+        </div>
+    </div>
+</section>
