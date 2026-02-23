@@ -1,17 +1,9 @@
-# docker-compose.yml
-version: '3.8'
-
 services:
-  angular-app:
-    build: .
+  flowllet:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: flowllet-web
+    restart: unless-stopped
     ports:
-      - "4200:4200"
-    volumes:
-      - .:/app
-      - /app/node_modules
-    environment:
-      - CHOKIDAR_USEPOLLING=true
-    # Ensure command binds to 0.0.0.0 and disables host check to prevent 502/Invalid Host Header
-    command: npx ng serve --host 0.0.0.0
-    stdin_open: true
-    tty: true
+      - "80:80"

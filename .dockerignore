@@ -1,10 +1,11 @@
-# Dependencies - never copy these, they get installed in the Docker build
+# Dependencies — installed fresh inside Docker
 node_modules
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 
-# Angular build output (built fresh inside Docker)
+# Lock file — we use npm install, not npm ci
+package-lock.json
+
+# Angular build output (rebuilt inside Docker)
 dist
 
 # Angular cache
@@ -15,7 +16,7 @@ dist
 .git
 .gitignore
 
-# Temporary / OS files
+# OS files
 .DS_Store
 Thumbs.db
 *.log
@@ -28,10 +29,10 @@ coverage
 .env
 .env.*
 
-# Docker files themselves
+# Scripts only needed locally
+scripts
+
+# Docker files themselves (not needed inside container)
 Dockerfile
 docker-compose.yml
 .dockerignore
-
-# Scripts only needed locally
-scripts
